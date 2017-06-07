@@ -1,0 +1,51 @@
+{
+  "name": "where-to-go",
+  "version": "1.0.0",
+  "description": "Application that shows places with good weather for selected day in NZ, so you can plan your trip.",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "create-react-class": "^15.5.3",
+    "enzyme": "^2.7.0",
+    "jsx-loader": "^0.13.2",
+    "nodemon": "^1.11.0",
+    "react": "^15.5.4",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.5.4",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --content-base public/ --hot --inline",
+    "start": "nodemon --watch server server/index & webpack --watch",
+    "test": "tape -r babel-register 'test/**/*.test.js' | tap-spec",
+    "watch": "nodemon -e js,jsx -x npm test"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaUlyanova/where-to-go.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaUlyanova/where-to-go/issues"
+  },
+  "homepage": "https://github.com/AnnaUlyanova/where-to-go#readme"
+}
