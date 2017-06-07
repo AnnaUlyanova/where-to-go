@@ -3,13 +3,12 @@ import CreateReactClass from 'create-react-class'
 
 export default CreateReactClass({
   componentDidMount() {
-    const temp
-  const loc
-  const icon
-  const humidity
-  const wind
-  const descr
-  const keyID = 'ed62ea675d460ce49ad75f7dc8bedb10'
+    let temp
+    let loc
+    let humidity
+    let wind
+    let descr
+    const keyID = 'ed62ea675d460ce49ad75f7dc8bedb10'
 
   function getByCity(city) {
     const url = 'http://api.openweathermap.org/data/2.5/weather?' + 'q=' + city + '&units=metric' + '&APPID=' + keyID
@@ -55,7 +54,6 @@ export default CreateReactClass({
   window.onload = function() {
     temp = document.getElementById('temperature')
     loc = document.getElementById('location')
-    icon = document.getElementById('icon')
     humidity = document.getElementById('humidity')
     wind = document.getElementById('wind')
     descr = document.getElementById('description')
