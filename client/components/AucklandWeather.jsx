@@ -11,7 +11,7 @@ export default CreateReactClass({
     const keyID = 'ed62ea675d460ce49ad75f7dc8bedb10'
 
   function getAuckland() {
-    const url = 'http://api.openweathermap.org/data/2.5/weather?' + 'q=Auckland' + '&units=metric' + '&APPID=' + keyID
+    const url = 'http://api.openweathermap.org/data/2.5/group?' + 'id=2193733,2179537,2208032,6230919' + '&units=metric' + '&APPID=' + keyID
     sendRequest(url)
   }
 
@@ -26,11 +26,11 @@ export default CreateReactClass({
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
         const data = JSON.parse(xmlhttp.responseText)
         const weather = {}
-        weather.humidity = data.main.humidity
-        weather.wind = data.wind.speed
-        weather.loc = data.name
-        weather.temp = data.main.temp
-        weather.descr =  data.weather[0].description
+        weather.humidity = data.list[0].main.humidity
+        weather.wind = data.list[0].wind.speed
+        weather.loc = data.list[0].name
+        weather.temp = data.list[0].main.temp
+        weather.descr =  data.list[0].weather[0].description
         getWeather(weather)
       }
     }

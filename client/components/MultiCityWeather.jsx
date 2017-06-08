@@ -10,7 +10,7 @@ export default CreateReactClass({
     let descr
     const keyID = 'ed62ea675d460ce49ad75f7dc8bedb10'
 
-  function getAuckland() {
+  function getMultiCity() {
     const url = 'http://api.openweathermap.org/data/2.5/group?' + 'id=2193733,2179537,2208032,6230919' + '&units=metric' + '&APPID=' + keyID
     sendRequest(url)
   }
@@ -52,18 +52,18 @@ export default CreateReactClass({
   // }
 
   window.onload = function() {
-    temp = document.getElementById('auckland-temperature')
-    loc = document.getElementById('auckland-location')
-    humidity = document.getElementById('auckland-humidity')
-    wind = document.getElementById('auckland-wind')
-    descr = document.getElementById('auckland-description')
+    temp = document.getElementById('multicity-temperature')
+    loc = document.getElementById('multicity-location')
+    humidity = document.getElementById('multicity-humidity')
+    wind = document.getElementById('multicity-wind')
+    descr = document.getElementById('multicity-description')
 
   //  if (navigator.geolocation) {
   //    navigator.geolocation.getCurrentPosition(showPosition)
   //  }
   //    else {
       //const city = 'London'
-     getAuckland()
+     getMultiCity()
   //  }
   }
 
@@ -72,11 +72,11 @@ export default CreateReactClass({
 render() {
   return(
     <div>
-      <div className='location'><p id='auckland-location'></p></div>
-      <div className='description'><p id='auckland-description'></p></div>
-        <div className='temperature'><p><b>Temperature:</b> <span id='auckland-temperature'></span></p></div>
-        <div className='humidity'><p><b>Humidity:</b> <span id='auckland-humidity'></span></p></div>
-        <div className='wind'><p><b>Wind:</b> <span id='auckland-wind'></span></p></div>
+      <div className='location'><p id='multicity-location'></p></div>
+      <div className='description'><p id='multicity-description'></p></div>
+        <div className='temperature'><p><b>Temperature:</b> <span id='multicity-temperature'></span></p></div>
+        <div className='humidity'><p><b>Humidity:</b> <span id='multicity-humidity'></span></p></div>
+        <div className='wind'><p><b>Wind:</b> <span id='multicity-wind'></span></p></div>
     </div>
   )
 }
