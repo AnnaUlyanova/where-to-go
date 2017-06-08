@@ -175,15 +175,12 @@ export default CreateReactClass({
   deleteBadWeather () {
     const table = document.getElementById('weather-table')
 
-    // const descriptions = [descr, descr1, descr2, descr3, descr4, descr5, descr6, descr7, descr8, descr9]
-
-    for (let i = 1; i < table.rows.length-1; i++) {
+    for (let i = 1; i < table.rows.length; i++) {
       let rain = table.rows[i].cells[1].innerText.indexOf('rain')
-      if (rain > 0) {
+      while (rain > 0) {
         table.deleteRow(i)
       }
     }
-    console.log(table.rows.length)
   },
 
   render () {
