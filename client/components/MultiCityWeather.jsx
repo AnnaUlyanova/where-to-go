@@ -168,24 +168,25 @@ export default CreateReactClass({
       humidity9 = row9.insertCell(3)
       wind9 = row9.insertCell(4)
 
-    getMultiCity()
+      getMultiCity()
     }
   },
 
-  deleteBadWeather() {
+  deleteBadWeather () {
     const table = document.getElementById('weather-table')
 
     // const descriptions = [descr, descr1, descr2, descr3, descr4, descr5, descr6, descr7, descr8, descr9]
 
-    for (let i = 0; i < table.rows[i].cells[2].length; i++) {
-      if (table.rows[i].cells[1] === '<td>clear sky</td>') {
-        document.getElementById('weather-table').deleteRow(i)
+    for (let i = 1; i < table.rows.length-1; i++) {
+      let rain = table.rows[i].cells[1].innerText.indexOf('rain')
+      if (rain > 0) {
+        table.deleteRow(i)
       }
     }
-    console.log(table.rows[1].cells[1])
+    console.log(table.rows.length)
   },
 
-render () {
+  render () {
     return (
       <div>
         <table id='weather-table'>
