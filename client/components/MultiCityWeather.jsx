@@ -1,5 +1,6 @@
 import React from 'react'
 import CreateReactClass from 'create-react-class'
+import { Link } from 'react-router-dom'
 
 export default CreateReactClass({
   componentDidMount () {
@@ -12,7 +13,7 @@ export default CreateReactClass({
     const keyID = 'ed62ea675d460ce49ad75f7dc8bedb10'
 
     function getMultiCity () {
-      const url = 'http://api.openweathermap.org/data/2.5/group?' + 'id=2193733,2179537,2208032,6230919,2188874,6228827,2208333,6241325,2206854,2186313' + '&units=metric' + '&APPID=' + keyID
+      const url = 'http://api.openweathermap.org/data/2.5/group?' + 'id=2193733,2179537,2208032,6230919,2188874,6228827,2208333,2186313,6241325,2206854' + '&units=metric' + '&APPID=' + keyID
       sendRequest(url)
     }
 
@@ -35,7 +36,7 @@ export default CreateReactClass({
     }
 
     function getWeather (weather) {
-      loc.innerHTML = weather.loc[0]
+      loc.innerHTML = `<a href = '/#/auckland'>${weather.loc[0]}</a>`
       descr.innerHTML = weather.descr[0]
       temp.innerHTML = weather.temp[0]
       humidity.innerHTML = weather.humidity[0]
@@ -175,9 +176,9 @@ export default CreateReactClass({
   deleteBadWeather () {
     const table = document.getElementById('weather-table')
 
-    for (let i = 1; i < table.rows.length; i++) {
+    for (let i = 1; i < table.rows.length-2; i++) {
       let rain = table.rows[i].cells[1].innerText.indexOf('rain')
-      while (rain > 0) {
+      if (rain > 0) {
         table.deleteRow(i)
       }
     }

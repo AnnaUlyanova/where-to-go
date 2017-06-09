@@ -15,11 +15,6 @@ export default CreateReactClass({
     sendRequest(url)
   }
 
-  // function updateByGeo (lat, lon) {
-  //   const url = 'http://api.openweathermap.org/data/2.5/weather?' + 'lat=' + lat + '&lon=' + lon + '&units=metric' + '&APPID=' + keyID
-  //   sendRequest(url)
-  // }
-
   function sendRequest(url){
     const xmlhttp = new XMLHttpRequest()
     xmlhttp.onreadystatechange = function() {
@@ -47,10 +42,6 @@ export default CreateReactClass({
     descr.innerHTML = weather.descr
   }
 
-  // function showPosition(position) {
-  //   updateByGeo(position.coords.latitude, position.coords.longitude)
-  // }
-
   window.onload = function() {
     temp = document.getElementById('auckland-temperature')
     loc = document.getElementById('auckland-location')
@@ -58,13 +49,7 @@ export default CreateReactClass({
     wind = document.getElementById('auckland-wind')
     descr = document.getElementById('auckland-description')
 
-  //  if (navigator.geolocation) {
-  //    navigator.geolocation.getCurrentPosition(showPosition)
-  //  }
-  //    else {
-      //const city = 'London'
-     getAuckland()
-  //  }
+   getAuckland()
   }
 
 },
@@ -72,6 +57,7 @@ export default CreateReactClass({
 render() {
   return(
     <div>
+      <h1>Auckland Weather</h1>
       <div className='location'><p id='auckland-location'></p></div>
       <div className='description'><p id='auckland-description'></p></div>
         <div className='temperature'><p><b>Temperature:</b> <span id='auckland-temperature'></span></p></div>
